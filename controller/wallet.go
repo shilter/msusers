@@ -43,7 +43,7 @@ func ListWallet(context *gin.Context) {
 		return
 	}
 
-	context.JSON(http.StatusOK, gin.H{"data": user.Banks})
+	context.JSON(http.StatusOK, gin.H{"data": user.Wallets})
 } 
 
 func ListAllWallets(context *gin.Context) {
