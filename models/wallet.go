@@ -10,7 +10,7 @@ type Wallet struct {
 	gorm.Model
 	Debet string `gorm:"size:255;not null json:"Debet"`
 	Credit string `gorm:"size:255;not null" json:"Credit"`
-	lastBalance string `gorm:"size:255;not null" json:"lastBalance"`
+	LastBalance string `gorm:"size:255;not null" json:"lastBalance"`
 	UserID uint
 	createdAt time.Time `gorm:"default:CURRENT_TIMESTAMP()" json:"createdAt"`
 	updatedAt time.Time `gorm:"default:CURRENT_TIMESTAMP()" json:"updatedAt"`

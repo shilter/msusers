@@ -9,9 +9,9 @@ import (
 )
 
 func SaveBank(context *gin.Context) {
-	var input models.Bank
+	var inputBank models.CreateBankInput
 
-	if err := context.ShouldBindJSON(&input); err != nil {
+	if err := context.ShouldBindJSON(&inputBank); err != nil {
 		context.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
@@ -23,9 +23,13 @@ func SaveBank(context *gin.Context) {
 		return
 	}
 
-	input.UserID = User.ID
+	bank := models.Bank{
+		AccountBank: inputBank.AccountBank,
+		NameBank: inputBank.NameBank,
+		UserID: User.ID,
+	}
 
-	savedBank, err := input.Save()
+	savedBank, err := bank.Save() 
 
 	if err != nil {
 		context.JSON(http.StatusBadRequest, gin.H{"error":err.Error()})

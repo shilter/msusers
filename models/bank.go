@@ -8,8 +8,8 @@ import (
 
 type Bank struct {
 	gorm.Model
-	accountBank string `gorm:"size:255;not null;unique json:"accountBank"`
-	nameBank string `gorm:"size:255;not null" json:"nameBank"`
+	AccountBank string `gorm:"size:255;not null;unique json:"accountBank"`
+	NameBank string `gorm:"size:255;not null" json:"nameBank"`
 	UserID uint
 	createdAt time.Time `gorm:"default:CURRENT_TIMESTAMP()" json:"createdAt"`
 	updatedAt time.Time `gorm:"default:CURRENT_TIMESTAMP()" json:"updatedAt"`

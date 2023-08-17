@@ -41,7 +41,7 @@ func serverApplication() {
 	protectedRoutes := router.Group("/api")
 	protectedRoutes.Use(middleware.JWTAuthMiddleware())
 
-	protectedRoutes.POST("/users", controller.SaveBank)
+	protectedRoutes.POST("/users", controller.CreateUser)
 	protectedRoutes.GET("/users", controller.ListAllUser)
 	protectedRoutes.GET("/users/:id",controller.GetUserDetails)
 	protectedRoutes.PUT("/users/:id", controller.UpdatedUser)
